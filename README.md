@@ -222,13 +222,13 @@ python modify_llm.py --modification_type selective --freeze_layers "0,1,2,3,4,5,
 - **Target Modules:** c_attn, c_proj, c_fc (attention and MLP layers)
 
 ### Parameter Efficiency Comparison
-| Technique | Trainable Parameters | Typical Performance | Memory Overhead |
-|-----------|---------------------|-------------------|-----------------|
-| **Full Fine-tuning** | 100% | Baseline | High |
-| **LoRA (r=4)** | ~0.1% | 95-100% of full FT | Minimal |
-| **Adapters (64)** | ~2-4% | 90-98% of full FT | Low |
-| **Prefix Tuning (50)** | <0.1% | 85-95% of full FT | Minimal |
-| **Selective (6 frozen)** | ~50% | 85-95% of full FT | Medium |
+| Technique | Trainable Parameters | 
+|-----------|---------------------|
+| **Full Fine-tuning** | 100% | 
+| **LoRA (rank=4, alpha=8)** | ~32.00% | 
+| **Adapters (64)** | ~0.95%% | 
+| **Prefix Tuning (50)** | 0.03% | 
+| **Selective =** | ~65.19% | 
 
 ### Output Information
 The script provides detailed parameter analysis:
