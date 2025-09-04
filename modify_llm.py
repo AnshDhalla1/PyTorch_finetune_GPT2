@@ -1,8 +1,4 @@
-#!/usr/bin/env python3
-"""
-Task 2: Model Architecture Modification Script 
-Custom implementations of fine-tuning techniques without HuggingFace/PEFT.
-"""
+# Task 2: Model Architecture Modification Script 
 
 import argparse
 import torch
