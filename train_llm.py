@@ -1,6 +1,4 @@
-"""
-Task 3: Training Integration Pipeline 
-"""
+# Task 3: Training Integration Pipeline 
 
 import argparse
 import os
@@ -503,51 +501,3 @@ if __name__ == "__main__":
         logger.error(f"Training pipeline failed: {str(e)}")
         raise
 
-
-
-
-# def train(model, dataloader, epochs=3, learning_rate=1e-5, max_grad_norm=1.0):
-#     """
-#     Backwards compatible training function (simplified version of your original).
-#     For production use, prefer the main_training_loop function above.
-#     """
-#     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
-#     loss_fn = torch.nn.CrossEntropyLoss()
-#     scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=1, gamma=0.9)
-    
-#     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-#     model.to(device)
-#     model.train()
-    
-#     for epoch in range(epochs):
-#         total_loss = 0
-#         for batch in dataloader:
-#             input_ids = batch['input_ids'].to(device)
-#             attention_mask = batch['attention_mask'].to(device)
-            
-#             optimizer.zero_grad()
-#             outputs = model(input_ids=input_ids, attention_mask=attention_mask, labels=input_ids)
-#             loss = outputs.loss
-#             loss.backward()
-            
-#             torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=max_grad_norm)
-#             optimizer.step()
-#             total_loss += loss.item()
-        
-#         scheduler.step()
-#         current_lr = scheduler.get_last_lr()[0]
-#         print(f"Epoch {epoch + 1}, Loss: {total_loss / len(dataloader):.4f}, LR: {current_lr:.6f}")
-
-
-# def main():
-#     """Backwards compatible main function."""
-#     args = parse_args()
-    
-#     # Create DataLoader for dataset loading and preprocessing
-#     dataloader = final_dataset_loader(args.dataset_path)
-    
-#     # Modify the GPT-2 model based on user input
-#     modified_model = final_modify(args)
-    
-#     # Train the model (using simple version for backwards compatibility)
-#     train(modified_model, dataloader, epochs=args.epochs, learning_rate=args.learning_rate)
